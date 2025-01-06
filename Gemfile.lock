@@ -1,0 +1,39 @@
+PATH
+  remote: .
+  specs:
+    tuna_roll (0.1.0)
+      nokogiri (~> 1.11)
+      progress (~> 3.6)
+      slim (~> 5.2)
+      temple (~> 0.10.3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mini_portile2 (2.8.8)
+    minitest (5.25.4)
+    nokogiri (1.18.1)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    nokogiri (1.18.1-arm64-darwin)
+      racc (~> 1.4)
+    progress (3.6.0)
+    racc (1.8.1)
+    rake (13.2.1)
+    slim (5.2.1)
+      temple (~> 0.10.0)
+      tilt (>= 2.1.0)
+    temple (0.10.3)
+    tilt (2.5.0)
+
+PLATFORMS
+  arm64-darwin-24
+  ruby
+
+DEPENDENCIES
+  minitest (~> 5.16)
+  rake (~> 13.0)
+  tuna_roll!
+
+BUNDLED WITH
+   2.6.2

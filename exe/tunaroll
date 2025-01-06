@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "tuna_roll"
+
+classes = TunaRoll.unroll_classes(*ARGV)
+classes.each { puts it }
