@@ -1,28 +1,40 @@
 # TunaRoll
 
-TODO: Delete this and the text below, and describe your gem
+Find all the HTML classes used in your templates. Super-duper experimental, only works on Slim and ERB (although any Temple engine can be adapted), and only find classes statically in the templates themselves.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tuna_roll`. To experiment with that code, run `bin/console` for an interactive prompt.
+It works by rendering the template without any Ruby code (so it renders every possible branch) and just extracts all the class attributes. Yeah I know it's really dumb, but anything smarter would be a ridiculous amount of effort.
+
+If it detects any classes with a dynamic portion, it just replaces that portion with the string `%DYNAMIC%`.
 
 ## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
 
 Install the gem and add to the application's Gemfile by executing:
 
 ```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+bundle add tuna_roll
 ```
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
 ```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+gem install tuna_roll
 ```
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ tunarall app/views/**/*.erb
+```
+
+Outputs all the classes to stdout. Can take a few seconds if your app is large.
+
+Internally it's just calling `TunaRoll::ClassUnroller.new(path).call` on every file.
+
+###
+
+## Why is it called TunaRoll?
+
+Because it unrolls templates into flat HTML to get all the classes, so template-unroll -> tunroll -> TunaRoll.
 
 ## Development
 
@@ -32,7 +44,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/tuna_roll.
+Bug reports and pull requests are welcome on GitHub at https://github.com/danini-the-panini/tuna_roll.
 
 ## License
 

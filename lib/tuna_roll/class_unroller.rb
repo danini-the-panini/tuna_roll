@@ -25,7 +25,8 @@ module TunaRoll
         case ext
         when '.erb' then ERBEngine.new
         when '.slim' then SlimEngine.new
-        else raise Error, "unrecognised file extension '#{ext}'"
+        when '.html' then :itself.to_proc
+        else warn "unrecognised file extension '#{ext}'"
         end
       end
 
